@@ -4,7 +4,7 @@ declare(strict_types=1);
 use App\Models\CategoryModel;
 use App\Repositories\Eloquent\CategoryEloquentRepository;
 use Core\Application\DTO\Category\ListCategoriesInput;
-use Core\Application\UseCase\Category\ListCategoriesUseCase;
+use Core\Application\UseCase\Category\ListAll\ListCategoriesUseCase;
 
 it('should list categories empty use case', function () {
     $useCase = new ListCategoriesUseCase(new CategoryEloquentRepository(new CategoryModel()));

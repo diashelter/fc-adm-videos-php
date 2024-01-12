@@ -30,6 +30,7 @@ services:
 
     db:
         build: ./.docker/mysql
+        platform: linux/amd64
         container_name: microservice-videos-db
         restart: always
         tty: true

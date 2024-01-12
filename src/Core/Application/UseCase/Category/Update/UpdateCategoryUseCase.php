@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Core\Application\UseCase\Category;
+namespace Core\Application\UseCase\Category\Update;
 
 use Core\Application\DTO\Category\CategoryUpdateInput;
 use Core\Application\DTO\Category\CategoryUpdateOutput;

@@ -122,3 +122,14 @@ composer test
 composer test
 composer test
 exit
+composer test
+composer test
+composer test
+exit
+composer test
+composer test
+exit
+composer test
+php artisan make:model Genre -m
+exit
+exit

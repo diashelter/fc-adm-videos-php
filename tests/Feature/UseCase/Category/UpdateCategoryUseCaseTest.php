@@ -4,7 +4,7 @@ declare(strict_types=1);
 use App\Models\CategoryModel;
 use App\Repositories\Eloquent\CategoryEloquentRepository;
 use Core\Application\DTO\Category\CategoryUpdateInput;
-use Core\Application\UseCase\Category\UpdateCategoryUseCase;
+use Core\Application\UseCase\Category\Update\UpdateCategoryUseCase;
 
 it('should update category', function () {
     $categoryDb = CategoryModel::factory()->create();

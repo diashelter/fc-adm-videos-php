@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Core\Application\UseCase\Category;
+namespace Core\Application\UseCase\Category\Create;
 
 use Core\Application\DTO\Category\CategoryOutput;
 use Core\Application\DTO\Category\CreateCategoryInput;

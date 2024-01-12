@@ -4,7 +4,7 @@ declare(strict_types=1);
 use App\Models\CategoryModel;
 use App\Repositories\Eloquent\CategoryEloquentRepository;
 use Core\Application\DTO\Category\CategoryInput;
-use Core\Application\UseCase\Category\ListCategoryUseCase;
+use Core\Application\UseCase\Category\List\ListCategoryUseCase;
 
 it('should list category use case', function () {
     $categoryDb = CategoryModel::factory()->create();

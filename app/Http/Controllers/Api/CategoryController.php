@@ -10,11 +10,11 @@ use Core\Application\DTO\Category\CategoryInput;
 use Core\Application\DTO\Category\CategoryUpdateInput;
 use Core\Application\DTO\Category\CreateCategoryInput;
 use Core\Application\DTO\Category\ListCategoriesInput;
-use Core\Application\UseCase\Category\CreateCategoryUseCase;
-use Core\Application\UseCase\Category\DeleteCategoryUseCase;
-use Core\Application\UseCase\Category\ListCategoriesUseCase;
-use Core\Application\UseCase\Category\ListCategoryUseCase;
-use Core\Application\UseCase\Category\UpdateCategoryUseCase;
+use Core\Application\UseCase\Category\Create\CreateCategoryUseCase;
+use Core\Application\UseCase\Category\Delete\DeleteCategoryUseCase;
+use Core\Application\UseCase\Category\ListAll\ListCategoriesUseCase;
+use Core\Application\UseCase\Category\List\ListCategoryUseCase;
+use Core\Application\UseCase\Category\Update\UpdateCategoryUseCase;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
