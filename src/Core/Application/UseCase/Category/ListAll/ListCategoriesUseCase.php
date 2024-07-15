@@ -3,10 +3,6 @@ declare(strict_types=1);
 
 namespace Core\Application\UseCase\Category\ListAll;
 
-use Core\Application\DTO\Category\CategoryInput;
-use Core\Application\DTO\Category\CategoryOutput;
-use Core\Application\DTO\Category\ListCategoriesInput;
-use Core\Application\DTO\Category\ListCategoriesOutput;
 use Core\Domain\Repository\CategoryRepositoryInterface;
 
 final class ListCategoriesUseCase

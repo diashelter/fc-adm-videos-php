@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 use App\Models\CategoryModel;
 use App\Repositories\Eloquent\CategoryEloquentRepository;
-use Core\Application\DTO\Category\CreateCategoryInput;
+use Core\Application\UseCase\Category\Create\CreateCategoryInput;
 use Core\Application\UseCase\Category\Create\CreateCategoryUseCase;
 
 it('should create category use case', function () {

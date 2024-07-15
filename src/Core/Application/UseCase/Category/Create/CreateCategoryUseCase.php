@@ -3,8 +3,7 @@ declare(strict_types=1);
 
 namespace Core\Application\UseCase\Category\Create;
 
-use Core\Application\DTO\Category\CategoryOutput;
-use Core\Application\DTO\Category\CreateCategoryInput;
+use Core\Application\UseCase\Category\CategoryOutput;
 use Core\Domain\Entity\Category;
 use Core\Domain\Repository\CategoryRepositoryInterface;
 

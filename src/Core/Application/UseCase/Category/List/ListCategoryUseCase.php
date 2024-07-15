@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Core\Application\UseCase\Category\List;
 
-use Core\Application\DTO\Category\CategoryInput;
-use Core\Application\DTO\Category\CategoryOutput;
+use Core\Application\UseCase\Category\CategoryInput;
+use Core\Application\UseCase\Category\CategoryOutput;
 use Core\Domain\Repository\CategoryRepositoryInterface;
 
 final class ListCategoryUseCase

@@ -10,6 +10,7 @@ use Core\Domain\Repository\PaginateInterface;
 use Core\Domain\ValueObject\Uuid;
 use DateTimeImmutable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class GenreEloquentRepository implements GenreRepositoryInterface
 {
@@ -28,9 +29,15 @@ class GenreEloquentRepository implements GenreRepositoryInterface
         ]);
 
         if (count($genre->categoriesId) > 0) {
-            $genreModel->categories()->sync($genre->categoriesId);
+            $sqlValues = "";
+            foreach ($genre->categoriesId as $item) {
+                if ($sqlValues !== "") {
+                    $sqlValues .= ", ";
+                }
+                $sqlValues .= "('{$item}', '{$genreModel->id}')";
+            }
+            DB::insert("INSERT INTO `category_genre` (`category_id`, `genre_id`) VALUES {$sqlValues}");
         }
-
         return $this->toGenre($genreModel);
     }
 
@@ -79,7 +86,15 @@ class GenreEloquentRepository implements GenreRepositoryInterface
         $genreDb->update(['name' => $genre->name]);
 
         if (count($genre->categoriesId) > 0) {
-            $genreDb->categories()->sync($genre->categoriesId);
+            $sqlValues = "";
+            foreach ($genre->categoriesId as $item) {
+                if ($sqlValues !== "") {
+                    $sqlValues .= ", ";
+                }
+                $sqlValues .= "('{$item}', '{$genre->id}')";
+            }
+            DB::delete("DELETE FROM `category_genre` WHERE genre_id = ?", [$genre->id]);
+            DB::insert("INSERT INTO `category_genre` (`category_id`, `genre_id`) VALUES {$sqlValues}");
         }
 
         return $this->toGenre($genreDb->refresh());

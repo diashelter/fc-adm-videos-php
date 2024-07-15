@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Core\Application\DTO\Category;
+namespace Core\Application\UseCase\Category\Create;
 
 final class CreateCategoryInput
 {
@@ -11,6 +11,6 @@ final class CreateCategoryInput
         public bool $isActive = true,
     )
     {
-        
+
     }
 }

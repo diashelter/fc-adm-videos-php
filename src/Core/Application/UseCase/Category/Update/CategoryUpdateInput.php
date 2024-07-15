@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Core\Application\DTO\Category;
+namespace Core\Application\UseCase\Category\Update;
 
 final class CategoryUpdateInput
 {
@@ -12,6 +12,6 @@ final class CategoryUpdateInput
         public bool $isActive = true,
     )
     {
-        
+
     }
 }

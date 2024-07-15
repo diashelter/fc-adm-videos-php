@@ -3,9 +3,8 @@ declare(strict_types=1);
 
 namespace Core\Application\UseCase\Category\Delete;
 
-use Core\Application\DTO\Category\CategoryInput;
+use Core\Application\UseCase\Category\CategoryInput;
 use Core\Domain\Repository\CategoryRepositoryInterface;
-use Core\Application\DTO\Category\DeleteCategoryOutput;
 
 final class DeleteCategoryUseCase
 {

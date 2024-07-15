@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 use App\Models\CategoryModel;
 use App\Repositories\Eloquent\CategoryEloquentRepository;
-use Core\Application\DTO\Category\CategoryInput;
+use Core\Application\UseCase\Category\CategoryInput;
 use Core\Application\UseCase\Category\Delete\DeleteCategoryUseCase;
 
 it('should delete category use case', function () {

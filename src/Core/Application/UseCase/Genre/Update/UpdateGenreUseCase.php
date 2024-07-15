@@ -38,10 +38,10 @@ final class UpdateGenreUseCase
             $this->transaction->commit();
 
             return new OutputUpdateGenreDto(
-                id: (string)$genreDb->id,
+                id: (string)$genreDb->id(),
                 name: $genreDb->name,
-                is_active: $genreDb->is_active,
-                created_at: $genreDb->created_at,
+                is_active: $genreDb->isActive(),
+                created_at: $genreDb->createdAt(),
             );
         } catch (\Throwable $th) {
             $this->transaction->rollback();

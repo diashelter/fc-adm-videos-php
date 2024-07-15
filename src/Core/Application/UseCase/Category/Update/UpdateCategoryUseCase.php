@@ -3,8 +3,6 @@ declare(strict_types=1);
 
 namespace Core\Application\UseCase\Category\Update;
 
-use Core\Application\DTO\Category\CategoryUpdateInput;
-use Core\Application\DTO\Category\CategoryUpdateOutput;
 use Core\Domain\Repository\CategoryRepositoryInterface;
 
 final class UpdateCategoryUseCase

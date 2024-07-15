@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Core\Application\DTO\Category;
+namespace Core\Application\UseCase\Category\ListAll;
 
 final class ListCategoriesInput
 {
@@ -12,6 +12,6 @@ final class ListCategoriesInput
         public int $totalPage = 15,
     )
     {
-        
+
     }
 }

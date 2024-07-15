@@ -44,21 +44,23 @@ it('test Insert Genre Deactivate', function () {
 
 it('test Insert With Relationships', function () {
     $categories = CategoryModel::factory()->count(4)->create();
-
     $genre = new Genre(name: 'teste');
     foreach ($categories as $category) {
         $genre->addCategory($category->id);
     }
 
     $response = $this->repository->insert($genre);
-
     $this->assertDatabaseHas('genres', [
         'id' => $response->id(),
     ]);
-
     $this->assertDatabaseCount('category_genre', 4);
 });
 
+it('should return exception genre not found find by id', function () {
+    expect(function () {
+        $this->repository->findById('invalid_id');
+    })->toThrow(NotFoundException::class, 'genre not found');
+});
 
 it('should find by id genre', function () {
     $genreModel = ModelsGenre::factory()->create();
@@ -67,12 +69,6 @@ it('should find by id genre', function () {
     $this->assertEquals($genre->id, $genreModel->id);
     $this->assertEquals($genre->name, $genreModel->name);
     $this->assertEquals($genre->isActive, $genreModel->is_active);
-});
-
-it('should return exception genre not found find by id', function () {
-    expect(function () {
-        $this->repository->findById('invalid_id');
-    })->toThrow(NotFoundException::class, 'genre not found');
 });
 
 it('should find all genres', function () {
@@ -95,7 +91,6 @@ it('test Find All With Filter', function () {
     $genresDb = $this->repository->findAll();
     $this->assertEquals(20, count($genresDb));
 });
-
 
 it('should test pagination', function () {
     ModelsGenre::factory(20)->create();
@@ -127,6 +122,10 @@ it('Update genre', function () {
     $this->assertInstanceOf(Genre::class, $genreUpdated);
     $this->assertNotEquals($genreUpdated->name, $modelsGenre->name);
     $this->assertEquals('test update', $genreUpdated->name);
+    $this->assertDatabaseHas('genres', [
+        "id" => $modelsGenre->id,
+        "name" => "test update"
+    ]);
 });
 
 it('test deleted id nor found genre', function () {
@@ -138,5 +137,8 @@ it('test deleted id nor found genre', function () {
 it('should delete genre', function () {
     $genreDb = ModelsGenre::factory()->create();
     $response = $this->repository->delete($genreDb->id);
+    $this->assertSoftDeleted('genres', [
+        'id' => $genreDb->id,
+    ]);
     $this->assertTrue($response);
 });
