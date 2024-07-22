@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace Core\Application\UseCase\CastMember\List;
 
 use App\Repositories\Eloquent\CastMemberEloquentRepository;
+use Core\Domain\Repository\CastMemberRepositoryInterface;
 
 class ListCastMemberUseCase
 {
     public function __construct(
-        private readonly CastMemberEloquentRepository $castMemberRepository
+        private CastMemberRepositoryInterface $castMemberRepository
     )
     {
     }
