@@ -18,3 +18,5 @@ yarn-error.log
 /.vscode
 .composer
 .docker/dbdata
+/.docker/elastic/
+.docker/elastic/
