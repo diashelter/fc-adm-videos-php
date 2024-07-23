@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Core\Application\UseCase\Category\Create;
@@ -11,8 +12,7 @@ final class CreateCategoryUseCase
 {
     public function __construct(
         protected CategoryRepositoryInterface $categoryRepository
-    ) {
-    }
+    ) {}
 
     public function execute(CreateCategoryInput $input): CategoryOutput
     {
@@ -22,6 +22,7 @@ final class CreateCategoryUseCase
             isActive: $input->isActive
         );
         $categoryEntity = $this->categoryRepository->insert($category);
+
         return new CategoryOutput(
             id: $categoryEntity->id(),
             name: $categoryEntity->name,

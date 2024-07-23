@@ -21,7 +21,7 @@ class CastMemberFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => (string)Str::uuid(),
+            'id' => (string) Str::uuid(),
             'name' => $this->faker->name(),
             'type' => $this->faker->numberBetween(1, 2),
             'created_at' => now(),

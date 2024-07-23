@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Core\Domain\Enum\CastMemberType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -15,7 +14,7 @@ class CastMember extends Model
         'id',
         'name',
         'type',
-        'created_at'
+        'created_at',
     ];
 
     public $incrementing = false;

@@ -38,7 +38,7 @@ it('test Insert Genre Deactivate', function () {
 
     $this->assertDatabaseHas('genres', [
         'id' => $entity->id,
-        'is_active' => false
+        'is_active' => false,
     ]);
 });
 
@@ -79,7 +79,7 @@ it('should find all genres', function () {
 
 it('test Find All With Filter', function () {
     ModelsGenre::factory()->count(10)->create([
-        'name' => 'Teste'
+        'name' => 'Teste',
     ]);
     ModelsGenre::factory()->count(10)->create();
 
@@ -123,8 +123,8 @@ it('Update genre', function () {
     $this->assertNotEquals($genreUpdated->name, $modelsGenre->name);
     $this->assertEquals('test update', $genreUpdated->name);
     $this->assertDatabaseHas('genres', [
-        "id" => $modelsGenre->id,
-        "name" => "test update"
+        'id' => $modelsGenre->id,
+        'name' => 'test update',
     ]);
 });
 

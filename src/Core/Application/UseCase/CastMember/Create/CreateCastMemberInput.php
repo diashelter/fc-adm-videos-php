@@ -7,6 +7,5 @@ class CreateCastMemberInput
     public function __construct(
         public string $name,
         public string $type,
-    ) {
-    }
+    ) {}
 }

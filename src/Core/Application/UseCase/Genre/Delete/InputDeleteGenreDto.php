@@ -8,6 +8,5 @@ final class InputDeleteGenreDto
 {
     public function __construct(
         public string $id = '',
-    ) {
-    }
+    ) {}
 }

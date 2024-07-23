@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Core\Application\UseCase\Category;
@@ -11,8 +12,5 @@ final class CategoryOutput
         public string $description = '',
         public bool $is_active = true,
         public string $created_at = '',
-    )
-    {
-
-    }
+    ) {}
 }

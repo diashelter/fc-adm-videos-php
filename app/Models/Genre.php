@@ -9,11 +9,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Genre extends Model
 {
     use HasFactory, SoftDeletes;
+
     protected $fillable = [
         'id',
         'name',
         'is_active',
-        'created_at'
+        'created_at',
     ];
 
     public $incrementing = false;

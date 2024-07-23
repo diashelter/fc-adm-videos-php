@@ -6,7 +6,5 @@ class DeleteCastMemberOutput
 {
     public function __construct(
         public bool $success,
-    )
-    {
-    }
+    ) {}
 }

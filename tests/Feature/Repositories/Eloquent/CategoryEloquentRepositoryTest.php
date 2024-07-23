@@ -1,12 +1,12 @@
 <?php
+
 declare(strict_types=1);
 
 use App\Models\CategoryModel;
+use App\Repositories\Eloquent\CategoryEloquentRepository;
 use Core\Domain\Entity\Category;
-use Illuminate\Database\Eloquent\Model;
 use Core\Domain\Exception\NotFoundException;
 use Core\Domain\Repository\CategoryRepositoryInterface;
-use App\Repositories\Eloquent\CategoryEloquentRepository;
 use Core\Domain\Repository\PaginateInterface;
 
 beforeEach(function () {

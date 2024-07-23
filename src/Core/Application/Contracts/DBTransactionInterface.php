@@ -7,5 +7,6 @@ namespace Core\Application\Contracts;
 interface DBTransactionInterface
 {
     public function commit();
+
     public function rollback();
 }

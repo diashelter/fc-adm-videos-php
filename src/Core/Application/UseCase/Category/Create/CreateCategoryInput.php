@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Core\Application\UseCase\Category\Create;
@@ -9,8 +10,5 @@ final class CreateCategoryInput
         public string $name,
         public string $description = '',
         public bool $isActive = true,
-    )
-    {
-
-    }
+    ) {}
 }

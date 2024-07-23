@@ -16,8 +16,7 @@ class GenreEloquentRepository implements GenreRepositoryInterface
 {
     public function __construct(
         private Model $model = new \App\Models\Genre(),
-    ) {
-    }
+    ) {}
 
     public function insert(Genre $genre): Genre
     {
@@ -29,23 +28,25 @@ class GenreEloquentRepository implements GenreRepositoryInterface
         ]);
 
         if (count($genre->categoriesId) > 0) {
-            $sqlValues = "";
+            $sqlValues = '';
             foreach ($genre->categoriesId as $item) {
-                if ($sqlValues !== "") {
-                    $sqlValues .= ", ";
+                if ($sqlValues !== '') {
+                    $sqlValues .= ', ';
                 }
                 $sqlValues .= "('{$item}', '{$genreModel->id}')";
             }
             DB::insert("INSERT INTO `category_genre` (`category_id`, `genre_id`) VALUES {$sqlValues}");
         }
+
         return $this->toGenre($genreModel);
     }
 
     public function findById(string $id): Genre
     {
-        if (!$genreModel = $this->model->find($id)) {
-            throw new NotFoundException("genre not found");
+        if (! $genreModel = $this->model->find($id)) {
+            throw new NotFoundException('genre not found');
         }
+
         return $this->toGenre($genreModel);
     }
 
@@ -79,21 +80,21 @@ class GenreEloquentRepository implements GenreRepositoryInterface
 
     public function update(Genre $genre): Genre
     {
-        if (!$genreDb = $this->model->find($genre->id)) {
+        if (! $genreDb = $this->model->find($genre->id)) {
             throw new NotFoundException("Genre {$genre->id} not found");
         }
 
         $genreDb->update(['name' => $genre->name]);
 
         if (count($genre->categoriesId) > 0) {
-            $sqlValues = "";
+            $sqlValues = '';
             foreach ($genre->categoriesId as $item) {
-                if ($sqlValues !== "") {
-                    $sqlValues .= ", ";
+                if ($sqlValues !== '') {
+                    $sqlValues .= ', ';
                 }
                 $sqlValues .= "('{$item}', '{$genre->id}')";
             }
-            DB::delete("DELETE FROM `category_genre` WHERE genre_id = ?", [$genre->id]);
+            DB::delete('DELETE FROM `category_genre` WHERE genre_id = ?', [$genre->id]);
             DB::insert("INSERT INTO `category_genre` (`category_id`, `genre_id`) VALUES {$sqlValues}");
         }
 
@@ -102,9 +103,10 @@ class GenreEloquentRepository implements GenreRepositoryInterface
 
     public function delete(string $id): bool
     {
-        if (!$genreDb = $this->model->find($id)) {
-            throw new NotFoundException("genre not found");
+        if (! $genreDb = $this->model->find($id)) {
+            throw new NotFoundException('genre not found');
         }
+
         return $genreDb->delete();
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use Core\Domain\Entity\Category;
@@ -23,7 +24,7 @@ it('test Activate category', function () {
     $category = new Category(
         name: 'New Category'
     );
-    
+
     $this->assertFalse($category->isActive());
     $category->activate();
     $this->assertTrue($category->isActive());
@@ -34,14 +35,14 @@ it('test Deactivate category', function () {
         name: 'New Category',
         isActive: true
     );
-        
+
     $this->assertTrue($category->isActive());
     $category->deactivate();
     $this->assertFalse($category->isActive());
 });
 
 it('test update category', function () {
-    $uuid = (string)Uuid::uuid4()->toString();
+    $uuid = (string) Uuid::uuid4()->toString();
 
     $category = new Category(
         id: $uuid,

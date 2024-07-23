@@ -29,8 +29,8 @@ test('list all genres', function () {
             'first_page',
             'per_page',
             'to',
-            'from'
-        ]
+            'from',
+        ],
     ]);
     $response->assertJsonCount(15, 'data');
 });
@@ -60,7 +60,7 @@ test('list genre', function () {
                 'name',
                 'is_active',
                 'created_at',
-            ]
+            ],
         ]
     );
     $this->assertEquals($genre->id, $response['data']['id']);
@@ -73,14 +73,14 @@ test('validations store', function () {
     $response->assertJsonStructure([
         'message',
         'errors' => [
-            'name'
-        ]
+            'name',
+        ],
     ]);
 });
 
 test('test store', function () {
     $categories = CategoryModel::factory()->count(10)->create();
-    $data = ['name' => 'new genre', 'categories_ids' => $categories->pluck('id')->toArray(),];
+    $data = ['name' => 'new genre', 'categories_ids' => $categories->pluck('id')->toArray()];
     $response = $this->postJson($this->endpoint, $data);
     $response->assertStatus(Response::HTTP_CREATED);
     $response->assertJsonStructure([
@@ -89,7 +89,7 @@ test('test store', function () {
             'name',
             'is_active',
             'created_at',
-        ]
+        ],
     ]);
     $this->assertDatabaseHas('genres', [
         'name' => 'new genre',
@@ -107,15 +107,15 @@ test('test validate genre update', function () {
     $genre = Genre::factory()->create();
     $data = [
         'name' => 'New Name to Update',
-        'categories_ids' => []
+        'categories_ids' => [],
     ];
     $response = $this->putJson("{$this->endpoint}/{$genre->id}", $data);
     $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
     $response->assertJsonStructure([
         'message',
         'errors' => [
-            'categories_ids'
-        ]
+            'categories_ids',
+        ],
     ]);
 });
 
@@ -130,7 +130,7 @@ test('test genre update', function () {
             'id',
             'name',
             'is_active',
-        ]
+        ],
     ]);
     $this->assertDatabaseHas('genres', [
         'name' => 'name update',

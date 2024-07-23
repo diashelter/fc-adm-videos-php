@@ -37,3 +37,6 @@ jobs:
           DB_CONNECTION: sqlite
           DB_DATABASE: database/database.sqlite
         run: composer test
+
+      - name: Run Code Style with Pint
+        run: composer pint

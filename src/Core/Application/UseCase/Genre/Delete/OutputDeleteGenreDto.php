@@ -8,6 +8,5 @@ final class OutputDeleteGenreDto
 {
     public function __construct(
         public bool $success,
-    ) {
-    }
+    ) {}
 }

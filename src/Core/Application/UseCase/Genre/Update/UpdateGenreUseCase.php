@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Core\Application\UseCase\Genre\Update;
 
-use Core\Domain\Exception\NotFoundException;
-use Core\Domain\Repository\GenreRepositoryInterface;
 use Core\Application\Contracts\DBTransactionInterface;
+use Core\Domain\Exception\NotFoundException;
 use Core\Domain\Repository\CategoryRepositoryInterface;
+use Core\Domain\Repository\GenreRepositoryInterface;
 
 final class UpdateGenreUseCase
 {
@@ -15,8 +15,7 @@ final class UpdateGenreUseCase
         private GenreRepositoryInterface $repository,
         private DBTransactionInterface $transaction,
         private CategoryRepositoryInterface $categoryRepository,
-    ) {
-    }
+    ) {}
 
     public function execute(InputUpdateGenreDto $input): OutputUpdateGenreDto
     {
@@ -38,7 +37,7 @@ final class UpdateGenreUseCase
             $this->transaction->commit();
 
             return new OutputUpdateGenreDto(
-                id: (string)$genreDb->id(),
+                id: (string) $genreDb->id(),
                 name: $genreDb->name,
                 is_active: $genreDb->isActive(),
                 created_at: $genreDb->createdAt(),

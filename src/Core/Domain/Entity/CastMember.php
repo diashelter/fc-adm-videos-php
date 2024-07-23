@@ -29,7 +29,7 @@ class CastMember
         return new CastMember(
             id: Uuid::random(),
             name: $name,
-            type: CastMemberType::from((int)$type),
+            type: CastMemberType::from((int) $type),
             createdAt: new DateTimeImmutable(),
         );
     }
@@ -39,7 +39,7 @@ class CastMember
         return new CastMember(
             id: new Uuid($id),
             name: $name,
-            type: CastMemberType::from((int)$type),
+            type: CastMemberType::from((int) $type),
             createdAt: new DateTimeImmutable($createdAt),
         );
     }

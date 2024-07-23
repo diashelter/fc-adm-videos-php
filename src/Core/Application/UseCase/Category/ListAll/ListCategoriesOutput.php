@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Core\Application\UseCase\Category\ListAll;
@@ -14,8 +15,5 @@ final class ListCategoriesOutput
         public int $per_page,
         public int $to,
         public int $from,
-    )
-    {
-
-    }
+    ) {}
 }

@@ -13,5 +13,5 @@ it('should list cast member use case', function () {
     $castMemberOutput = $useCase->execute($castMemberDb->id);
     expect($castMemberDb->id)->toBe($castMemberOutput->id);
     expect($castMemberDb->name)->toBe($castMemberOutput->name);
-    expect((string)$castMemberDb->type)->toBe($castMemberOutput->type);
+    expect((string) $castMemberDb->type)->toBe($castMemberOutput->type);
 });

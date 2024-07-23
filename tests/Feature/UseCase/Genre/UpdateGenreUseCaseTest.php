@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use App\Models\CategoryModel;
@@ -9,7 +10,6 @@ use App\Repositories\Transaction\DBTransaction;
 use Core\Application\UseCase\Genre\Update\InputUpdateGenreDto;
 use Core\Application\UseCase\Genre\Update\UpdateGenreUseCase;
 use Core\Domain\Exception\NotFoundException;
-
 
 it('should update genre use case', function () {
     $repository = new GenreEloquentRepository();
@@ -25,7 +25,7 @@ it('should update genre use case', function () {
     $useCase->execute(new InputUpdateGenreDto(id: $genre->id, name: 'New Name', categoriesId: $categoriesIds));
 
     $this->assertDatabaseHas('genres', [
-        'name' => 'New Name'
+        'name' => 'New Name',
     ]);
 
     $this->assertDatabaseCount('category_genre', 10);

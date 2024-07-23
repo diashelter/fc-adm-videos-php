@@ -7,7 +7,7 @@ use Core\Domain\Enum\CastMemberType;
 use Core\Domain\Exception\EntityValidationException;
 
 it('test Attributes', function () {
-    $uuid = (string)\Ramsey\Uuid\Uuid::uuid4();
+    $uuid = (string) \Ramsey\Uuid\Uuid::uuid4();
 
     $castMember = CastMember::restore(
         id: $uuid,

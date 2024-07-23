@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Core\Application\UseCase\Genre\ListAll;
@@ -14,6 +15,5 @@ final class OutputListGenresDto
         public int $perPage,
         public int $to,
         public int $from,
-    ) {
-    }
+    ) {}
 }

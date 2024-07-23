@@ -26,22 +26,23 @@ class CategoryController extends Controller
             input: new ListCategoriesInput(
                 filter: $request->get('filter', ''),
                 order: $request->get('order', 'DESC'),
-                page: (int)$request->get('page', 1),
-                totalPage: (int)$request->get('totalPage', 15),
+                page: (int) $request->get('page', 1),
+                totalPage: (int) $request->get('totalPage', 15),
             )
         );
+
         return CategoryResource::collection(collect($response->items))
-                ->additional([
-                    'meta' => [
-                        'total' => $response->total,
-                        'current_page' => $response->current_page,
-                        'last_page' => $response->last_page,
-                        'first_page' => $response->first_page,
-                        'per_page' => $response->per_page,
-                        'to' => $response->to,
-                        'from' => $response->from,
-                    ]
-                ]);
+            ->additional([
+                'meta' => [
+                    'total' => $response->total,
+                    'current_page' => $response->current_page,
+                    'last_page' => $response->last_page,
+                    'first_page' => $response->first_page,
+                    'per_page' => $response->per_page,
+                    'to' => $response->to,
+                    'from' => $response->from,
+                ],
+            ]);
     }
 
     public function store(StoreCategoryRequest $request, CreateCategoryUseCase $useCase)
@@ -49,12 +50,12 @@ class CategoryController extends Controller
         $response = $useCase->execute(input: new CreateCategoryInput(
             name: $request->name,
             description: $request->description ?? '',
-            isActive: (bool)$request->is_active ?? true,
+            isActive: (bool) $request->is_active ?? true,
         ));
 
         return (new CategoryResource($response))
-                        ->response()
-                        ->setStatusCode(Response::HTTP_CREATED);
+            ->response()
+            ->setStatusCode(Response::HTTP_CREATED);
     }
 
     public function show(ListCategoryUseCase $useCase, string $id)
@@ -82,6 +83,7 @@ class CategoryController extends Controller
         $response = $useCase->execute(
             input: new CategoryInput($id)
         );
+
         return response()->noContent();
     }
 }

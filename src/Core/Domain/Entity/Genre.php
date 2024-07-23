@@ -1,13 +1,14 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Core\Domain\Entity;
 
-use DateTimeImmutable;
-use DateTimeInterface;
-use Core\Domain\ValueObject\Uuid;
 use Core\Domain\Entity\Traits\MethodsMagicsTrait;
 use Core\Domain\Validation\DomainValidation;
+use Core\Domain\ValueObject\Uuid;
+use DateTimeImmutable;
+use DateTimeInterface;
 
 final class Genre
 {

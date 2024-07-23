@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
+use App\Models\CastMember as CastMemberModel;
 use App\Repositories\Eloquent\CastMemberEloquentRepository;
 use Core\Domain\Entity\CastMember;
-use App\Models\CastMember as CastMemberModel;
 use Core\Domain\Exception\NotFoundException;
 use Core\Domain\Repository\PaginateInterface;
 
@@ -28,7 +28,7 @@ it('should insert cast member', function () {
     $this->assertDatabaseHas('cast_members', [
         'id' => $entity->id(),
         'name' => $entity->name,
-        'type' => $entity->type->value
+        'type' => $entity->type->value,
     ]);
 });
 
@@ -54,7 +54,7 @@ it('should find all cast members', function () {
 
 it('test Find All With Filter', function () {
     CastMemberModel::factory()->count(10)->create([
-        'name' => 'Teste'
+        'name' => 'Teste',
     ]);
     CastMemberModel::factory()->count(10)->create();
 
@@ -99,8 +99,8 @@ it('Update a cast member', function () {
     $this->assertNotEquals($castMemberUpdated->name, $modelsCastMember->name);
     $this->assertEquals('test update', $castMemberUpdated->name);
     $this->assertDatabaseHas('cast_members', [
-        "id" => $modelsCastMember->id,
-        "name" => "test update"
+        'id' => $modelsCastMember->id,
+        'name' => 'test update',
     ]);
 });
 

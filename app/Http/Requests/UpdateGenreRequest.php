@@ -25,7 +25,7 @@ class UpdateGenreRequest extends FormRequest
     {
         return [
             'name' => ['required', 'min:3', 'max:255'],
-            'categories_ids' => ['required', 'array', 'exists:categories,id,deleted_at,NULL',]
+            'categories_ids' => ['required', 'array', 'exists:categories,id,deleted_at,NULL'],
         ];
     }
 }

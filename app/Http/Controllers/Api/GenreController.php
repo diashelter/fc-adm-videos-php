@@ -26,9 +26,10 @@ class GenreController extends Controller
         $response = $useCase->execute(new InputListGenresDto(
             filter: $request->get('filter', ''),
             order: $request->get('order', 'DESC'),
-            page: (int)$request->get('page', 1),
-            totalPage: (int)$request->get('totalPage', 15),
+            page: (int) $request->get('page', 1),
+            totalPage: (int) $request->get('totalPage', 15),
         ));
+
         return GenreResource::collection(collect($response->items))
             ->additional([
                 'meta' => [
@@ -39,7 +40,7 @@ class GenreController extends Controller
                     'per_page' => $response->perPage,
                     'to' => $response->to,
                     'from' => $response->from,
-                ]
+                ],
             ]);
     }
 
@@ -48,7 +49,7 @@ class GenreController extends Controller
         $response = $useCase->execute(input: new InputCreateGenreDto(
             name: $request->name,
             categoriesId: $request->categories_ids,
-            isActive: (bool)$request->is_active ?? true,
+            isActive: (bool) $request->is_active ?? true,
         ));
 
         return (new GenreResource($response))
@@ -77,6 +78,7 @@ class GenreController extends Controller
     public function destroy(DeleteGenreUseCase $useCase, string $id)
     {
         $response = $useCase->execute(input: new InputDeleteGenreDto($id));
+
         return response()->noContent();
     }
 }

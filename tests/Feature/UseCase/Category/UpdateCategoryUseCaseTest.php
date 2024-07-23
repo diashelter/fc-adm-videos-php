@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use App\Models\CategoryModel;
@@ -22,6 +23,6 @@ it('should update category', function () {
     $this->assertEquals($categoryDb->created_at, $response->created_at);
 
     $this->assertDatabaseHas('categories', [
-        'name' => $response->name
+        'name' => $response->name,
     ]);
 });

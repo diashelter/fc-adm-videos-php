@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Core\Application\UseCase\Genre\ListAll;
@@ -9,8 +10,7 @@ final class ListGenresUseCase
 {
     public function __construct(
         protected GenreRepositoryInterface $genreRepository
-    ) {
-    }
+    ) {}
 
     public function execute(InputListGenresDto $input): OutputListGenresDto
     {
@@ -20,6 +20,7 @@ final class ListGenresUseCase
             page: $input->page,
             totalPage: $input->totalPage,
         );
+
         return new OutputListGenresDto(
             items: $response->items(),
             total: $response->total(),

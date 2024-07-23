@@ -1,11 +1,12 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Repositories\Presenters;
 
-use stdClass;
 use Core\Domain\Repository\PaginateInterface;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use stdClass;
 
 final class PaginationPresenter implements PaginateInterface
 {
@@ -68,6 +69,7 @@ final class PaginationPresenter implements PaginateInterface
             }
             array_push($response, $stdClass);
         }
+
         return $response;
     }
 }

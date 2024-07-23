@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Core\Application\UseCase\Category\Update;
@@ -9,9 +10,7 @@ final class UpdateCategoryUseCase
 {
     public function __construct(
         private CategoryRepositoryInterface $categoryRepository,
-    )
-    {
-    }
+    ) {}
 
     public function execute(CategoryUpdateInput $input): CategoryUpdateOutput
     {
@@ -21,6 +20,7 @@ final class UpdateCategoryUseCase
             description: $input->description ?? $category->description
         );
         $categoryUpdated = $this->categoryRepository->update($category);
+
         return new CategoryUpdateOutput(
             id: $categoryUpdated->id(),
             name: $categoryUpdated->name,

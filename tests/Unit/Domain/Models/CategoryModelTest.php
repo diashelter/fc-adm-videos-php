@@ -1,9 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 use App\Models\CategoryModel;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 it('if use traits', function () {
 
@@ -14,7 +15,6 @@ it('if use traits', function () {
     $traitsUsed = array_keys(class_uses(new CategoryModel()));
     $this->assertEquals($traitsNeed, $traitsUsed);
 });
-
 
 it('incrementing is false', function () {
     $model = new CategoryModel();
@@ -28,7 +28,7 @@ it('has casts', function () {
         'deleted_at' => 'datetime',
     ];
     $model = new CategoryModel();
-    $this->assertEquals($castsNeed,$model->getCasts());
+    $this->assertEquals($castsNeed, $model->getCasts());
 });
 
 it('fillables', function () {

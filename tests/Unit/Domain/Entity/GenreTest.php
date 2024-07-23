@@ -1,10 +1,11 @@
 <?php
+
 declare(strict_types=1);
 
-use Ramsey\Uuid\Uuid as RamseyUuid;
 use Core\Domain\Entity\Genre;
 use Core\Domain\Exception\EntityValidationException;
 use Core\Domain\ValueObject\Uuid;
+use Ramsey\Uuid\Uuid as RamseyUuid;
 
 test('test genre attributes', function () {
     $date = new DateTimeImmutable();
@@ -73,7 +74,6 @@ test('add category to genres', function () {
     $genre->addCategory($categoryId);
     $this->assertCount(2, $genre->categoriesId);
 });
-
 
 test('remove category to genres', function () {
     $categoryId = RamseyUuid::uuid4()->toString();

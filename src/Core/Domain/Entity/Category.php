@@ -1,14 +1,14 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Core\Domain\Entity;
 
-use DateTime;
+use Core\Domain\Entity\Traits\MethodsMagicsTrait;
+use Core\Domain\Validation\DomainValidation;
+use Core\Domain\ValueObject\Uuid;
 use DateTimeImmutable;
 use DateTimeInterface;
-use Core\Domain\ValueObject\Uuid;
-use Core\Domain\Validation\DomainValidation;
-use Core\Domain\Entity\Traits\MethodsMagicsTrait;
 
 final class Category
 {

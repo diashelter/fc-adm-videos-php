@@ -1,10 +1,9 @@
 <?php
+
 declare(strict_types=1);
 
-use Illuminate\Support\Str;
 use App\Models\CategoryModel;
 use Illuminate\Http\Response;
-use Database\Factories\CategoryModelFactory;
 
 beforeEach(function () {
     $this->endpoint = '/api/categories';
@@ -29,8 +28,8 @@ test('list all categories', function () {
             'first_page',
             'per_page',
             'to',
-            'from'
-        ]
+            'from',
+        ],
     ]);
     $response->assertJsonCount(15, 'data');
 });
@@ -61,7 +60,7 @@ test('list category', function () {
                 'description',
                 'is_active',
                 'created_at',
-            ]
+            ],
         ]
     );
     $this->assertEquals($category->id, $response['data']['id']);
@@ -74,8 +73,8 @@ test('validations store', function () {
     $response->assertJsonStructure([
         'message',
         'errors' => [
-            'name'
-        ]
+            'name',
+        ],
     ]);
 });
 
@@ -90,7 +89,7 @@ test('test store', function () {
             'description',
             'is_active',
             'created_at',
-        ]
+        ],
     ]);
     $this->assertDatabaseHas('categories', [
         'name' => 'new category',
@@ -108,7 +107,7 @@ test('test validate store description', function () {
             'description',
             'is_active',
             'created_at',
-        ]
+        ],
     ]);
     $this->assertEquals('new category', $response['data']['name']);
     $this->assertEquals('new descrription', $response['data']['description']);
@@ -129,8 +128,8 @@ test('test validate category update', function () {
     $response->assertJsonStructure([
         'message',
         'errors' => [
-            'name'
-        ]
+            'name',
+        ],
     ]);
 });
 
@@ -146,7 +145,7 @@ test('test category update', function () {
             'description',
             'is_active',
             'created_at',
-        ]
+        ],
     ]);
     $this->assertDatabaseHas('categories', [
         'name' => 'name update',

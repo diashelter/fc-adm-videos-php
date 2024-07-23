@@ -11,6 +11,5 @@ class CreateCastMemberOutput
         public string $name,
         public string $type,
         public string $createdAt,
-    ) {
-    }
+    ) {}
 }

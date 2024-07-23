@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Core\Application\UseCase\Category\ListAll;
@@ -9,8 +10,7 @@ final class ListCategoriesUseCase
 {
     public function __construct(
         private CategoryRepositoryInterface $categoryRepository,
-    ) {
-    }
+    ) {}
 
     public function execute(ListCategoriesInput $input): ListCategoriesOutput
     {
@@ -20,6 +20,7 @@ final class ListCategoriesUseCase
             page: $input->page,
             totalPage: $input->totalPage,
         );
+
         return new ListCategoriesOutput(
             items: $categories->items(),
             total: $categories->total(),

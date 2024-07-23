@@ -10,8 +10,7 @@ final class DeleteGenreUseCase
 {
     public function __construct(
         private GenreRepositoryInterface $repository,
-    ) {
-    }
+    ) {}
 
     public function execute(InputDeleteGenreDto $input): OutputDeleteGenreDto
     {

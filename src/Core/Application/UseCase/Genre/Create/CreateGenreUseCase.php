@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Core\Application\UseCase\Genre\Create;
 
 use Core\Application\Contracts\DBTransactionInterface;
-use Core\Application\UseCase\Genre\Create\InputCreateGenreDto;
-use Core\Application\UseCase\Genre\Create\OutputCreateGenreDto;
 use Core\Domain\Entity\Genre;
 use Core\Domain\Exception\NotFoundException;
 use Core\Domain\Repository\CategoryRepositoryInterface;
@@ -18,8 +16,7 @@ final class CreateGenreUseCase
         private GenreRepositoryInterface $genreRepository,
         private DBTransactionInterface $tansaction,
         private CategoryRepositoryInterface $categoryRepository,
-    ) {
-    }
+    ) {}
 
     public function execute(InputCreateGenreDto $input): OutputCreateGenreDto
     {

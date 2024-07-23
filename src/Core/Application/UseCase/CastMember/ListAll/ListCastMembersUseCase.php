@@ -8,9 +8,7 @@ class ListCastMembersUseCase
 {
     public function __construct(
         private CastMemberRepositoryInterface $repository
-    )
-    {
-    }
+    ) {}
 
     public function execute(InputCastMembers $input): ListCastMembersResponse
     {
@@ -20,6 +18,7 @@ class ListCastMembersUseCase
             page: $input->page,
             totalPage: $input->totalPage,
         );
+
         return new ListCastMembersResponse(
             items: $response->items(),
             total: $response->total(),
